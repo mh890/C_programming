@@ -17,12 +17,22 @@ IF STATEMENT
 checks for condition and if true, then performs the block, else it performs some other operation
     same logic for if-else, if else-if and nested blocks
 
+    --> TERNARY OPERATOR
+        short hand if-else
+        variable = (condition) ? expressionifTrue ; expressionifFalse;
 
 SWITCH STATEMENT
-proba better to use rather than many if-else statements
+prob better to use rather than many if-else statements
 provide a varaible as a condition and series of cases that can be switched
     dont forget break keyword after each case!! its to avoid the next case to be executed
-    also can add a default case at the end
+    also can add a default case at the end (optional)
+    switch(expression){
+        case x:
+            // code block
+            break;
+        case y:
+            //code block
+            break; blah blah keep it going like this
 */
 
 
