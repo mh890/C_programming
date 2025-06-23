@@ -1,5 +1,8 @@
 #include <stdio.h>
 
+#include <stdbool.h>
+    // include this when using with boolean variables
+
 
 /*
 C only has if, if-else, if else-if ladder and switch statements.
