@@ -1,0 +1,130 @@
+TYPEDEF
+keyword in c that lets you create funcitons w your own name
+--> typedef int uint;
+
+typedef existingType NEWTYPE;
+the new type by convention is in uppercae.. this is to distinguish it more easily and make it easier to read
+        ex: typedef int NUMBER;
+        NUMBER one= 1;
+    can define new NUMBER type that is an int
+
+why not just use the built in type int instead? bc typedef gets really sueful when paired with enum and struct
+
+ENUM 
+using typedef and enum we can create a type that can have either one value or another
+    syntax: typedef enum {
+        //code block
+    }
+
+here a simple example:
+    typedef enum{
+        true,
+        false
+    } BOOLEAN;
+
+heres another example:
+    typedef enum{
+        monday,
+        tuesday,
+        wednesday.
+        thursday,
+        friday,
+        saturday,
+        sunday,
+    } WEEKDAY;
+
+    every item in the enum defintion is paired with an integer, so in this case, monday is 0, tuesday is 1, etc..
+
+STRUCTURES
+
+using struct keyword, we can create complex data structures using basic c
+--> is a user defined data type
+--> think of it like a folder holding different types of documents
+
+    structure: collection of values of different types
+    remember, arrays can only hole one type whereas struct can hold mulitple
+
+the syntax is simple:
+    struct <structName>{
+        type type1;
+        type type2;
+        ..
+    }
+
+to initalize it you could do something like:
+    struct Person{
+        char name[50];
+        int age;
+        float height;
+    }
+
+    typedef struct {
+        char name[50];
+        int age; 
+        float height;
+    } Person;
+
+    //these two have same structure in memory but not exactly same in usage
+    // in the second one, it creates a struct type anonymously
+        so when calling it in main, you can write it 
+            Person p1;
+    // in the fist, the struct already has a name
+        so calling it in main -->
+            struct Person p1;
+
+    you can give an entrie struct to a function, just like youd pass an int or float
+
+        void printPerson(Person p){
+            printf("Name %s, Age %d\n", p1.name, p1.age);
+        }
+            //keep in mind, THIS CREATES A COPY OF THE STRUCTURES
+
+    something like this can modify original values:
+        void updateAge(Person *p) {
+            p->age += 1;  // modifies the original Person
+        }   
+
+        the -> is used to access memeber when working with pointers
+        this lets you modify the original
+
+HEADER FILES
+as program grows larger, its impossible to keep everything in one file, so mulitple is needed
+you can move parts of the program in seperate files, labelled .h, for header files
+--> instead of implementations, it holds declarations
+    alr using it w #include
+        this is a preprocessor directive
+    to include your own files 
+        #include "myfile.h"
+
+it does not contain actual function bodue or logic, just the blueprint 
+    the purpose:
+        keeps declarations seperate from logic, 
+        write once, include everywhere,
+        share common decalrations across mulitple files
+
+PREPROCESSOR 
+parses the program and makes sure that the compiler gets all the things it needs before going on and compiling
+    --> think of it as a text editor roboto that modifies code before the compiler even sees it
+    --> looks up all header files you include with # include
+    --> looks at every constant defined and substitues its values using #define
+    --> undefines a macro using #undef
+    --> checks if a macro is defined using #ifdef/ #ifndef
+
+PREPROCESSOR CONDITIONALS
+these control what parts of the code get compiled, depdning on  whether something is defined
+#ifdef --> checks if a macro is already defined using #define
+        #define DEBUG
+
+        #ifdef DEBUG
+        printf("Debug mode ON\n");
+        #endif
+
+#ifndef --> checks if macro is NOT defined
+        #ifndef MATH_UTILS_H
+        #define MATH_UTILS_H
+
+        // Declarations go here
+
+        #endif
+
+
