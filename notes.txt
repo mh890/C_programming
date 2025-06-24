@@ -127,4 +127,25 @@ these control what parts of the code get compiled, depdning on  whether somethin
 
         #endif
 
+Macros with two underscores (like __FILE__, __LINE__, etc.) are usually predefined macros in C, or compiler-specific macros. 
+They have special meanings and are often used for debugging, logging, or system-level programming.
 
+Macro	Meaning
+__FILE__	Name of the current source file (as a string)
+__LINE__	Current line number in the source file
+__DATE__	Compilation date (e.g., "Jun 23 2025")
+__TIME__	Compilation time (e.g., "11:03:00")
+__func__	Name of the current function (C99 and later)
+__STDC__	Defined as 1 if the compiler follows the C standard
+
+
+    #include <stdio.h>
+
+    int main() {
+        printf("File: %s\n", __FILE__);
+        printf("Line: %d\n", __LINE__);
+        printf("Date: %s\n", __DATE__);
+        printf("Time: %s\n", __TIME__);
+        printf("Function: %s\n", __func__);
+        return 0;
+    }
